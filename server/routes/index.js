@@ -8,4 +8,11 @@ router.get('/message', function(req, res, next) {
 router.get('/sampledata', function(req, res){
   res.json("Sample")
 });
+
+router.post('/login', function(req, res){
+	console.log("Request Receieved");
+	console.log(req.body.username);
+	console.log(req.body.password);
+	res.send("Success");
+})
 module.exports = router;
