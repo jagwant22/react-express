@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import SignUp from './SignUp';
 export default class Home extends Component{
 	loginGo(){
 		let username = document.getElementById('username').value;
@@ -42,6 +42,10 @@ export default class Home extends Component{
 							<button className='btn btn-primary' onClick={this.loginGo}>Go</button>
 						
 
+					</div>
+					<hr />
+					<div className='col-md-6'>
+						<SignUp />
 					</div>
 					</center>
 				</div>

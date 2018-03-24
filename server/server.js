@@ -7,6 +7,8 @@
 var app = require('./app');
 var debug = require('debug')('express-react:server');
 var http = require('http');
+const mongoose = require('mongoose');
+const db = mongoose.connect("mongodb://localhost:27017/mern-db");
 
 
 
