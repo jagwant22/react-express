@@ -7,19 +7,23 @@ export default class Home extends Component{
 		let datasend = {
 			username  :username,
 			password : password
-		}
-		console.log("Sending " + JSON.stringify(datasend));
+		};
+		
 		fetch('/api/login', {
-			method:"post",
+			method:'post',
 			body : JSON.stringify(datasend),
 			headers : {
-				"Content-Type": "application/json"
+				'Content-Type': 'application/json'
 			}
 		}).then(function(response){
 			return response.text();
 		}).then(function(result){
-			console.log(result);
-		})
+			if(result.status == 200){
+				// Redirect to dashboard
+			}else{
+				alert("Sorry.. Invalid User or Password..");
+			}
+		});
 	}
 	render(){
 		return(
@@ -28,10 +32,10 @@ export default class Home extends Component{
 				<hr />
 				<div className ='container'> 
 					<center>
-					<h3>Log In </h3>
-					<hr />
+						<h3>Log In </h3>
+						<hr />
 					
-					<div className='col-md-6'>
+						<div className='col-md-6'>
 						
 							<label>Username</label>
 							<input className='form-control input-sm' type='text' id='username' placeholder='Start typing here' />
@@ -42,15 +46,15 @@ export default class Home extends Component{
 							<button className='btn btn-primary' onClick={this.loginGo}>Go</button>
 						
 
-					</div>
-					<hr />
-					<div className='col-md-6'>
-						<SignUp />
-					</div>
+						</div>
+						<hr />
+						<div className='col-md-6'>
+							<SignUp />
+						</div>
 					</center>
 				</div>
 			</div>
 
-			);
+		);
 	}
 }
