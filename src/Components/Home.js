@@ -18,7 +18,7 @@ export default class Home extends Component{
 		}).then(function(response){
 			return response.text();
 		}).then(function(result){
-			if(result.status == 200){
+			if(result.status === 200){
 				// Redirect to dashboard
 			}else{
 				alert("Sorry.. Invalid User or Password..");
