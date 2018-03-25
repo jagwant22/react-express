@@ -16,10 +16,10 @@ export default class SignUp extends Component{
 
 		console.log("sending");
 		console.log(data_to_send);
-		alert("/api/signup");
-		fetch("api call", {
+		alert("");
+		fetch("/api/user", {
 			method :"post",
-			data : JSON.stringify(data_to_send),
+			body : JSON.stringify(data_to_send),
 			headers : {
 				"Content-Type":"application/json"
 			}
