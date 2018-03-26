@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import SignUp from './SignUp';
+
+import { Route, Redirect } from 'react-router';
+
 export default class Home extends Component{
 	loginGo(){
 		let username = document.getElementById('username').value;
@@ -20,16 +23,18 @@ export default class Home extends Component{
 		}).then(function(result){
 			if(result.status === 200){
 				// Redirect to dashboard
+				window.url = '/dashboard/'
+
 			}else{
 				alert("Sorry.. Invalid User or Password..");
+				
 			}
 		});
 	}
 	render(){
 		return(
 			<div>
-				Welcome
-				<hr />
+				
 				<div className ='container'> 
 					<center>
 						<h3>Log In </h3>

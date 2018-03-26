@@ -1,14 +1,5 @@
 import React, { Component } from 'react';
-import Home from './Components/Home';
+import Routes from './routes/routes' ;
 
-export default class Main extends Component {
-
-  render() {
-    return (
-      <div className="App">
-        <Home />
-      </div>
-    );
-  }
-}
+export default () => <Routes />;
 
