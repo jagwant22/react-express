@@ -1,27 +1,18 @@
 import React, {Component} from 'react';
+import LoaderOverlay from './LoaderOverlay';
 
 export default class Dashboard extends Component {
+	
 	constructor(props){
-		// initialize state
 		super(props);
-		this.state = {
-			loggedIn : false
-		};
-
+		if(sessionStorage.getItem('logged_in') == "false"){
+    		window.location = '/';
+    	}
 	}
-
-	check_if_logged_in = () =>{
-		console.log("checking login status");
-		return this.state.loggedIn ;  
-	};
-
-	componentwillMount(){
-		console.log("inside componentwillMount");
-		let check = this.check_if_logged_in();
-		if(check === false){
-			window.location = '/';
-		}
-	}
+	componentWillMount() {
+		
+    	
+  	};
 
 
 
@@ -29,6 +20,7 @@ export default class Dashboard extends Component {
 	render(){
 		return(
 				<div>
+					<LoaderOverlay />
 					<h4>Dashboard</h4>
 				</div>
 			);

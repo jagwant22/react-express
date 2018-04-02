@@ -4,6 +4,12 @@ import SignUp from './SignUp';
 import { Route, Redirect } from 'react-router';
 
 export default class Home extends Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			loggedIn : false
+		};
+	}
 	loginGo(){
 		let username = document.getElementById('username').value;
 		let password = document.getElementById('password').value;
@@ -19,11 +25,21 @@ export default class Home extends Component{
 				'Content-Type': 'application/json'
 			}
 		}).then(function(response){
-			return response.text();
+			return response.json();
 		}).then(function(result){
+			console.log(result.status === 200);
 			if(result.status === 200){
 				// Redirect to dashboard
-				window.url = '/dashboard/'
+				try{
+					console.log("TRUE");
+					sessionStorage.setItem("logged_in", true);
+					console.log("session storage status : " + sessionStorage.getItem("logged_in"));
+					console.log("redirecting");
+					window.location = '/dashboard/';	
+				}catch(err){
+					console.log(err);
+				}
+				
 
 			}else{
 				alert("Sorry.. Invalid User or Password..");
@@ -37,7 +53,7 @@ export default class Home extends Component{
 				
 				<div className ='container'> 
 					<center>
-						<h3>Log In </h3>
+						<h3>Please Log In to Continue </h3>
 						<hr />
 					
 						<div className='col-md-6'>
@@ -53,6 +69,12 @@ export default class Home extends Component{
 
 						</div>
 						<hr />
+						<center>
+						<h3>
+							OR 
+						</h3>
+						<hr />
+						</center>
 						<div className='col-md-6'>
 							<SignUp />
 						</div>

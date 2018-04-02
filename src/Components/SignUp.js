@@ -42,7 +42,7 @@ export default class SignUp extends Component{
 							<label>Select Username </label>
 							<input className='form-control input-sm' id='sign_username'/>
 							<label> Select Password </label>
-							<input className='form-control input-sm' type='password' id='sign_password' />
+							<input className='form-control input-sm' type='password' id='sign_password' /><br />
 							<input type='submit' />
 						</form>
 					</div>
